@@ -16,11 +16,8 @@ public class CustomWriter implements ItemWriter<Customer> {
     @Override
     public void write(List list) throws Exception {
 
-        if (list != null && !list.isEmpty()) {
-            System.out.println("thread name: " + Thread.currentThread().getName() + " writing data to database");
-            customerRepo.saveAll(list);
-        } else {
-            System.out.println("No data to write.");
-        }
+        System.out.println("Writer thread name: " + Thread.currentThread().getName());
+           customerRepo.saveAll(list);
+       }
     }
-}
+
